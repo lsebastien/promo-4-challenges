@@ -9,3 +9,15 @@ require_relative "wagon_sort"
 
 # TODO: Then call `wagon_sort` method defined in the wagon_sort.rb
 #       file and display the sorted student list
+nom = nil
+students = []
+until nom == ""
+  print "type a student name (or press enter to finish)"
+  nom = gets.chomp
+  students << nom
+end
+
+wagon_sort(students)
+
+puts "Congratulations! Your Wagon has #{students.count- 1} students :"
+puts students[0..100]
