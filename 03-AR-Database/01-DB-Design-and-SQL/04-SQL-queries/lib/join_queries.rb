@@ -2,6 +2,10 @@ require 'sqlite3'
 
 def detailed_tracks(db)
   # TODO: return the list of tracks with their album and artist
+  db.execute("SELECT t.name, al.title, ar.name
+    FROM tracks t
+    JOIN albums al ON (al.id = t.album_id)
+    JOIN artists ar ON (ar.id = al.artist_id);")
 end
 
 def stats_on(db, genre_name)
