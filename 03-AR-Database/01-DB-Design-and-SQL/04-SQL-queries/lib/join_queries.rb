@@ -10,6 +10,13 @@ end
 
 def stats_on(db, genre_name)
   # TODO: For the given category of music, return the number of tracks and the average song length (as a stats hash)
+  query = "SELECT COUNT(*), AVG(milliseconds)
+    FROM tracks t
+    JOIN genres g ON (g.id = t.genre_id)
+    WHERE g.name = '#{genre_name}';"
+  puts query
+  hash = db.execute(query)
+
 end
 
 def top_five_artists(db, genre_name)
